@@ -1,9 +1,9 @@
 <!-- Begin Tabs -->
 <input type="radio" checked="checked" class="tab tab1" name="attr_Core-Tab" value="1" title="Character">
-<span class="tab tab1" style="line-height: 40px;" data-i18n="tab-character">Character</span>
+<span class="tab tab1" style="line-height: 40px;">Character</span>
 
 <input type="radio" class="tab tab2" name="attr_Core-Tab" value="2" title="Equipment">
-<span class="tab tab2" style="line-height: 40px;" data-i18n="tab-equipment">Equipment</span>
+<span class="tab tab2" style="line-height: 40px;">Possessions</span>
 
 <!-- <input type="radio" class="tab tab5" name="attr_Core-Tab" value="5" title="Scripts"> --> <!-- HIDDEN SCIRPTS -->
 <!-- <span class="tab tab2" style="line-height: 40px;" data-i18n="tab-scripts">Scripts</span> --> <!-- HIDDEN SCIRPTS -->
@@ -16,13 +16,38 @@
     <div class="sheet-wrapper">
         <h1>Character</h1>
         <div class="sheet-grid sheet-grid--col2">
-            <div>Name</div>
-            <div>Background</div>
-            <div class="sheet-box"></div>
-            <div class="sheet-box"></div>
+            <label class="sheet-label">Name</label>
+            <label class="sheet-label">Background</label>
+            <input class="sheet-box" type="text" name="attr_character_name" />
+            <input class="sheet-box" type="text" name="attr_background" />
         </div>
         <div class="sheet-grid sheet-grid--col1">
-            <div>Special</div>
+            <label class="sheet-label">Special</label>
+            <textarea class="sheet-box" name="attr_special"></textarea>
+        </div>
+         <div class="sheet-grid sheet-grid--col3">
+            <label class="sheet-label">Skill</label>
+            <label class="sheet-label">Stamina</label>
+            <label class="sheet-label">Luck</label>
+            <input class="sheet-box" type="number" name="attr_skill" />
+            <input class="sheet-box" type="number" name="attr_stamina" />
+            <div class="sheet-controlGroup">
+                <input class="sheet-box" type="number" name="attr_luck" />
+                <button type="roll" name="act_luckCheck"></button>
+            </div>
+        </div>
+        <div class="sheet-grid sheet-grid--col1">
+            <div>Advanced Skills &amp; Spells</div>
+        </div>
+        <div class="sheet-grid sheet-grid--advanced">
+            <label class="sheet-label">Name</label>
+            <label class="sheet-label">Rank</label>
+            <label class="sheet-label">Skill</label>
+            <label class="sheet-label">Total</label>
+
+            <div class="sheet-box"></div>
+            <div class="sheet-box"></div>
+            <div class="sheet-box"></div>
             <div class="sheet-box"></div>
         </div>
     </div>
@@ -30,6 +55,17 @@
 
 <!--    *************************   Equipment *************************   -->
 <div class="section-equipment">
-    <h1>Equipment</h1>
+    <h1>Possessions</h1>
 </div>
 
+<script type="text/worker">
+    on('sheet:opened',function(){
+        console.log('sheet opened!');
+        alert('sheet opened');
+        
+    });
+
+    // on("clicked:luckCheck", function() {
+    //   console.log("Luck button clicked");
+    // });
+</script>
